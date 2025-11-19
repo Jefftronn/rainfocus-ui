@@ -1,57 +1,112 @@
 [
-    {
-        "moduleTitle": "Attendee",
-        "steps": [
-            {
-                "stepName": "1",
-                "stepTitle": "Base Settings.",
-                "stepCards": [
-                    {
-                        "cardTtile": "General",
-                        "cardDescription": "Define Attendee types & attributes"
-                    },
-                    {
-                        "cardTtile": "Title",
-                        "cardDescription": "Description that explains the value goes here. Description that explains the value goes here. "
-                    },
-                    {
-                        "cardTtile": "Title",
-                        "cardDescription": "Description that explains the value goes here. Description that explains the value goes here. "
-                    }
-                ]
-            },
-            {
-                "stepName": "2",
-                "stepTitle": "Build registration workflows.",
-                "stepCards": [
-                    {
-                        "cardTtile": "Attendee Registration",
-                        "cardDescription": "Start by creating a general registration workflow"
-                    },
-                    {
-                        "cardTtile": "Attendee Registration",
-                        "cardDescription": "Start by creating a general registration workflow"
-                    },
-                    {
-                        "cardTtile": "Attendee Registration",
-                        "cardDescription": "Start by creating a general registration workflow"
-                    }
-                ]
-            },
-            {
-                "stepName": "3",
-                "stepTitle": "Design post-registration experiences.",
-                "stepCards": [
-                    {
-                        "cardTtile": "Attendee Portal",
-                        "cardDescription": "Manage the portal that attendees will see after they/’/ve register for your event."
-                    }
-                ]
-            }
+  {
+    "moduleTitle": "Attendee",
+    "steps": [
+      {
+        "stepName": "1",
+        "stepTitle": "Base Settings",
+        "stepCards": [
+          {
+            "cardTitle": "General",
+            "cardDescription": "Define Attendee types & attributes"
+          },
+          {
+            "cardTitle": "Title",
+            "cardDescription": "Description that explains the value goes here. Description that explains the value goes here."
+          },
+          {
+            "cardTitle": "Title",
+            "cardDescription": "Description that explains the value goes here. Description that explains the value goes here."
+          }
         ]
-    },
-    {
-        "moduleTitle": "Location",
-        "steps": 3
-    }
+      },
+      {
+        "stepName": "2",
+        "stepTitle": "Build registration workflows",
+        "stepCards": [
+          {
+            "cardTitle": "Attendee Registration",
+            "cardDescription": "Start by creating a general registration workflow"
+          },
+          {
+            "cardTitle": "Attendee Registration",
+            "cardDescription": "Start by creating a general registration workflow"
+          },
+          {
+            "cardTitle": "Attendee Registration",
+            "cardDescription": "Start by creating a general registration workflow"
+          }
+        ]
+      },
+      {
+        "stepName": "3",
+        "stepTitle": "Design post-registration experiences",
+        "stepCards": [
+          {
+            "cardTitle": "Attendee Portal",
+            "cardDescription": "Manage the portal that attendees will see after they've registered for your event."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "moduleTitle": "Location",
+    "steps": [
+      {
+        "stepName": "1",
+        "stepTitle": "Base Settings",
+        "stepCards": [
+          {
+            "cardTitle": "General",
+            "cardDescription": "Define Attendee types & attributes"
+          },
+          {
+            "cardTitle": "Title",
+            "cardDescription": "Description that explains the value goes here. Description that explains the value goes here."
+          },
+          {
+            "cardTitle": "Title",
+            "cardDescription": "Description that explains the value goes here. Description that explains the value goes here."
+          },
+          {
+            "cardTitle": "Title",
+            "cardDescription": "Description that explains the value goes here. Description that explains the value goes here."
+          }
+        ]
+      },
+      {
+        "stepName": "2",
+        "stepTitle": "Build registration workflows",
+        "stepCards": [
+          {
+            "cardTitle": "Attendee Registration",
+            "cardDescription": "Start by creating a general registration workflow"
+          },
+          {
+            "cardTitle": "Attendee Registration",
+            "cardDescription": "Start by creating a general registration workflow"
+          },
+          {
+            "cardTitle": "Attendee Registration",
+            "cardDescription": "Start by creating a general registration workflow"
+          }
+        ]
+      },
+      {
+        "stepName": "3",
+        "stepTitle": "Design post-registration experiences",
+        "stepCards": [
+          {
+            "cardTitle": "Attendee Portal",
+            "cardDescription": "Manage the portal that attendees will see after they've registered for your event."
+          },
+          {
+            "cardTitle": "Attendee Portal",
+            "cardDescription": "Manage the portal that attendees will see after they've registered for your event."
+          }
+        ]
+      }
+    ]
+  }
 ]
