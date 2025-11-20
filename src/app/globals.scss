@@ -1,13 +1,43 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+$primary-white: #ffffff;
+$primary-blue: #5c00dc;
+$primary-blue-hover: #6b00ff;
+$primary-blue-border: #CBC6DE;
+$primary-black-title-text: #222222;
+$primary-text-color: #393551;
+
+$xs-text-size: 12px;
+$sm-text-size: 14px;
+$md-text-size: 16px; 
+$lg-text-size: 20px; 
+$xl-text-size: 24px; 
+$xxl-text-size: 32px; 
+
+@mixin respond($size) {
+  @if $size == xs {
+    @media (max-width: #{$breakpoint-xs}) { @content; }
+  } @else if $size == sm {
+    @media (max-width: #{$breakpoint-sm}) { @content; }
+  } @else if $size == md {
+    @media (max-width: #{$breakpoint-md}) { @content; }
+  } @else if $size == lg {
+    @media (max-width: #{$breakpoint-lg}) { @content; }
+  } @else if $size == xl {
+    @media (max-width: #{$breakpoint-xl}) { @content; }
+  } @else if $size == xxl {
+    @media (max-width: #{$breakpoint-2xl}) { @content; }
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: $primary-white;
+  --foreground: #171717;
 }
 
 html,
@@ -37,10 +67,201 @@ a {
 
 .app-container {
   height: 100vh;
-  width: 1440px;
+  width: 100vw;
   max-width: 1600px;
   display: flex;
   margin: auto;
+}
+
+.main-event-header {
+  color: $primary-black-title-text;
+  font-size: $xxl-text-size;
+  font-weight: 100;
+}
+
+.main-event-text {
+  font-size: $md-text-size;
+}
+
+.primary-title-color {
+  color: $primary-black-title-text;
+}
+
+.primary-color {
+  color: $primary-text-color;
+}
+
+.base-text {
+  font-size: $sm-text-size;
+}
+
+.base-title-text {
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.button-base {
+  background-color: $primary-blue;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary-blue-hover;
+  }
+}
+
+.button-cancel {
+  background-color: #fff;
+  color: #222;
+  padding: 8px 16px;
+  border: 1px solid $primary-black-title-text;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #efefef;
+  }
+}
+
+.sm-modal {
+  width: 26rem;
+  @include respond(xs) {
+    width: 100%;
+    margin: 1.5rem;
+  }
+}
+
+.md-modal {
+  width: 32rem;
+  @include respond(sm) {
+    width: 100%;
+    margin: 1.5rem;
+  }
+}
+
+.lg-modal {
+  width: 48rem;
+}
+
+.double-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.select-input {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: inherit;
+  padding: .6rem .8rem;
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid #222;
+  min-height: 37px;
+
+  background-image: url('/images/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+}
+
+.react-datepicker-wrapper {
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+  input {
+    width: 100%;
+    font-family: inherit;
+    padding: .6rem .8rem;
+    border-radius: 4px;
+    min-height: 37px;
+    border: 1px solid #222;
+  }
+}
+
+.modal-overlay {
+  background-color: #6b00ff;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.modal-container {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  animation: slideIn 0.25s ease-out;
+  .modal-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .modal-close-icon {
+    cursor: pointer;
+  }
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    .modal-input-container {
+      margin-bottom: 1rem;
+      .modal-input-label {
+        margin-bottom: 10px;
+      }
+      .modal-input {
+        font-family: inherit;
+        width: 100%;
+        padding: .6rem .8rem;
+        min-height: 37px;
+        border-radius: 4px;
+        border: 1px solid #222;
+      }
+      .modal-textarea {
+        font-family: inherit;
+        width: 100%;
+        padding: .6rem .8rem;
+        min-height: 200px;
+      }
+    }
+  }
+  .modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .modal-buttons {
+      margin: 0 1rem;
+    }
+  }
+}
+
+.step-title-bold {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.step-title-text {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.base-text {
+  font-size: 12px;
 }
 
 .side-nav-container {
@@ -48,8 +269,11 @@ a {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #CBC6DE;
-  border-left: 1px solid #CBC6DE;
+  border-right: 1px solid $primary-blue-border;
+  border-left: 1px solid $primary-blue-border;
+  @include respond(md) {
+    padding: 1rem;
+  }
   .rainfocus-logo {
     margin-bottom: 1.5rem;
   }
@@ -65,9 +289,9 @@ a {
     border-radius: 50%;
     width: 32px;
     height: 32px;
-    overflow: hidden; /* prevents stretching */
-    font-size: 14px;  /* enforce text size */
-    line-height: 1;   /* prevent text pushing vertically */
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1;
     p {
       color: #fff;
     }
@@ -78,13 +302,24 @@ a {
   padding: 2.5rem 3rem;
   flex-grow: 1;
   overflow: scroll;
+
+  @include respond(md) {
+    padding: 1rem;
+  }
   .main-header-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 3rem;
+
+    @include respond(md) {
+      flex-direction: column;
+    }
     .event-header-info {
       display: flex;
+      @include respond(md) {
+        margin-bottom: 1.5rem;
+      }
       .event-logo {
         margin-right: 16px;
       }
@@ -96,14 +331,14 @@ a {
     }
     .edit-event-conatiner {
       .edit-event-button {
-        background-color: #5c00dc;
+        background-color: $primary-blue;
         color: #fff;
         padding: 8px 16px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         &:hover {
-          background-color: #6b00ff;
+          background-color: $primary-blue-hover;
         }
       }
     }
@@ -115,14 +350,18 @@ a {
     }
   }
   .module-list-container {
-    border-top: 1px solid #CBC6DE;
+    border-top: 1px solid $primary-blue-border;
     margin-bottom: 3rem;
     padding-top: 1.5rem;
     .module-list-title {
       display: flex;
       margin-bottom: 1.5rem;
+      align-items: center;
       .module-icon {
         margin-right: 1.5rem;
+      }
+      .module-title {
+        font-size: $lg-text-size;
       }
     }
     .base-setting-content {
@@ -131,12 +370,25 @@ a {
         margin-bottom: 8px;
       }
       .base-setting-list-container {
-        border: 1px solid #CBC6DE;
+        border: 1px solid $primary-blue-border;
         border-radius: 4px;
         padding: 1rem 1.5rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 2rem;
+
+        @include respond(lg) {
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 1rem;
+        }
+        @include respond(md) {
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        @include respond(sm) {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
         .base-setting {
           .base-title {
             margin-bottom: 4px;
@@ -153,8 +405,15 @@ a {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1.5rem;
+
+        @include respond(md) {
+          grid-template-columns: 1fr 1fr;
+        }
+        @include respond(sm) {
+          grid-template-columns: 1fr;
+        }
         .workflow-content {
-          border: 1px solid #CBC6DE;
+          border: 1px solid $primary-blue-border;
           border-radius: 4px;
           padding: 1.5rem 2rem;
           min-height: 120px;
@@ -168,7 +427,7 @@ a {
           }
         }
         .add-workflow-content {
-          border: 1px solid #CBC6DE;
+          border: 1px solid $primary-blue-border;
           border-radius: 4px;
           padding: 1.5rem 2rem;
           min-height: 120px;
