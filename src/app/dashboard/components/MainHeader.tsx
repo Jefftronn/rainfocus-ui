@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import EditEventModal from "./EditEventModal";
 
 export default function MainHeader() {
     const [eventInfo, setEventInfo] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(false)
+    const [openAddModal, setOpenAddModal] = useState(false);
+
+    function editEventDetails(details: any) {
+        setEventInfo(details);
+        setOpenAddModal(false);
+    }
 
     useEffect(() => {
         setLoading(true);
@@ -40,16 +47,23 @@ export default function MainHeader() {
                     priority
                 />                
                 <div className="event-info">
-                    <h1>{eventInfo?.name}</h1>
+                    <h1 className="main-event-header">{eventInfo?.name}</h1>
                     <div className="event-details">
-                        <p>{formattedDate}</p>
-                        <p>{eventInfo?.city} {eventInfo?.state}</p>
+                        <p className="primary-color main-event-text">{formattedDate}</p>
+                        <p className="primary-color main-event-text">{eventInfo?.city} {eventInfo?.state}</p>
                     </div>
                 </div>
             </div>
             <div className="edit-event-conatiner">
-                <button className="edit-event-button">Edit Event</button>
+                <button onClick={() => setOpenAddModal(true)} className="edit-event-button">Edit Event</button>
             </div>
+            {openAddModal && (
+                <EditEventModal 
+                    eventInfo={eventInfo}
+                    onClose={()=> setOpenAddModal(false)}
+                    onSubmit={editEventDetails}/>
+                )
+            }
         </div>
     )
 }

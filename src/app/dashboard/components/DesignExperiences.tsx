@@ -2,12 +2,12 @@ import Image from "next/image";
 export default function DesignExperiences({steps}: any) {
     return (
         <div className="workflow-container">
-            <p className="step-title">Step {steps?.stepName}: {steps?.stepTitle}</p>
+            <p className="step-title step-title-bold">Step {steps?.stepName}: <span className="step-title-text">{steps?.stepTitle}</span></p>
             <div className="workflow-list-container">
                 {
-                    steps?.stepCards.map((card: any) => {
+                    steps?.stepCards.map((card: any, index: number) => {
                         return (
-                            <div className="workflow-content">
+                            <div key={index} className="workflow-content">
                                 <div className="workflow-title">
                                     <Image
                                         className="workflow-icon"
@@ -17,9 +17,9 @@ export default function DesignExperiences({steps}: any) {
                                         height={24}
                                         priority
                                     />                                
-                                <p>{card?.cardTitle}</p>
+                                <p className="primary-title-color base-title-text">{card?.cardTitle}</p>
                                 </div>
-                                <p>{card?.cardDescription}</p>
+                                <p className="primary-color base-text">{card?.cardDescription}</p>
                             </div>
                         );
                     })

@@ -29,20 +29,20 @@ export default function ModuleList() {
 
     return (
         <div>
-            { moduleList.map((module) => {
+            { moduleList.map((module, index) => {
                 return (
-                    <div className="module-list-container">
-                    <div className="module-list-title"> 
-                        <Image
-                            className="module-icon"
-                            src="/images/person-portal.png"
-                            alt="Next.js logo"
-                            width={35}
-                            height={35}
-                            priority
-                        />
-                        <h3>{module?.moduleTitle}</h3>
-                    </div>
+                    <div key={index} className="module-list-container">
+                        <div className="module-list-title"> 
+                            <Image
+                                className="module-icon"
+                                src="/images/person-portal.png"
+                                alt="Next.js logo"
+                                width={35}
+                                height={35}
+                                priority
+                            />
+                            <h3 className="primary-title-color module-title">{module?.moduleTitle}</h3>
+                        </div>
                         <BaseSettings steps={module?.steps[0]} />
                         <WorkFlowCards steps={module?.steps[1]} />
                         <DesignExperiences steps={module?.steps[2]} />

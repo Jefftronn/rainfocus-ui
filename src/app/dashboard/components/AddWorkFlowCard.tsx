@@ -1,13 +1,8 @@
 import Image from "next/image";
 
-export default function AddWorkFlowCard() {
-
-    function openAddWorkFlowModal() {
-        console.log("open it");
-    }
-
+export default function AddWorkFlowCard({openAddModal}: any) {
     return (
-        <div className="add-workflow-content" onClick={openAddWorkFlowModal}>
+        <div className="add-workflow-content" onClick={openAddModal}>
             <Image
                 className="add-workflow-image"
                 src="/images/add.svg"
@@ -16,7 +11,7 @@ export default function AddWorkFlowCard() {
                 height={24}
                 priority
             />    
-            <p>Add Registration Workflow</p>
+            <p className="primary-title-color base-text">Add Registration Workflow</p>
         </div>
     );
 }
